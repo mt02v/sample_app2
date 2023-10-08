@@ -1,0 +1,13 @@
+<h1>投稿一覧</h1>
+<%# @lists.eachと記述することで、Listレコードの数だけ繰り返し処理を行う %>
+<%# 各レコードの内容は、listという変数に格納 %>
+<% @lists.each do |list| %>
+
+ <p>タイトル<p>
+ <%# list.titleと記述することで、投稿のタイトルが表示 %>
+ <%# リンク先URLは、/lists/:idの「:idに該当する部分」を指定 %>
+ <span>
+   <%= link_to list.title, list_path(list.id) %>
+ </span>
+
+<% end %>

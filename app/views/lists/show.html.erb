@@ -1,0 +1,8 @@
+<%# 詳細画面　%>
+<h2>タイトル</h2>
+<p><%= @list.title %></p>
+
+<h2>本文</h2>
+<p><%= @list.body %></p>
+<%# 編集画面へ遷移するリンクを設定 %>
+<%= link_to "編集", edit_list_path(@list.id) %>

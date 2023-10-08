@@ -1,0 +1,14 @@
+<h1>新規投稿</h1>
+<!-- form_with部分 -->
+<!-- List.newと定義することで、Listモデルの情報をもとに
+新しくオブジェクトが作成され、Listモデルに存在するtitle・bodyが格納 -->
+<%= form_with model: @list, url: '/lists', method: :post do |f| %>
+    <h4>タイトル</h4>
+<!-- タイトルを入力する部分 -->
+    <%= f.text_field :title %>
+    <h4>本文</h4>
+<!-- 投稿を入力する部分  -->
+    <%=f.text_area :body %>
+<!-- 投稿ボタン  -->
+    <%= f.submit '投稿' %>
+<% end %>
