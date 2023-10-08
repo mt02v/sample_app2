@@ -1,4 +1,13 @@
 <h1>新規投稿</h1>
+
+<% if @list.errors.any? %>
+  <%= @list.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @list.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+ </ul>
+<% end %>
 <!-- form_with部分 -->
 <!-- List.newと定義することで、Listモデルの情報をもとに
 新しくオブジェクトが作成され、Listモデルに存在するtitle・bodyが格納 -->
@@ -9,6 +18,10 @@
     <h4>本文</h4>
 <!-- 投稿を入力する部分  -->
     <%=f.text_area :body %>
+<!-- 画像をを追加する部分-->
+    <h4>画像</h4>
+<!-- accept: "image/*"を使い、画像ファイルしか投稿できない-->
+    <%=f.file_field :image, accept: "image/*" %>
 <!-- 投稿ボタン  -->
     <%= f.submit '投稿' %>
 <% end %>
